@@ -1,4 +1,4 @@
-
+![logoitgam](/resources/pleca_itgam.jpg)
 
 # Estructura y Organizacion de Datos 
 __Repositorio__ Materia y estructura de organización de datos, semestre 2026B.
