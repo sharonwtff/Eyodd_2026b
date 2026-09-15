@@ -6,7 +6,7 @@ __Repositorio__ Materia y estructura de organización de datos, semestre 2026B.
 ## Competencias a desarrollar
 
 Identifica, selecciona y aplica eficientemente tipos de datos abstractos, métodos de ordenamiento y búsqueda para la optimización del rendimiento de soluciones de problemas del mundo real.
-
+fxcfsjxs
 ## Contenido
 
 **Unidad 1** Fundamentos de estructura de datos
