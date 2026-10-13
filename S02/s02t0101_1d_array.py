@@ -42,3 +42,8 @@ try:
   print(f"Location {num_to_search}: {my_array.index(num_to_search)}")
 except :
   print(" ⚠️ Numero no encontrado ❌!!!")
+
+try:
+  my_array[100]=3
+except:
+  print("⚠️ Indice no existe !!!❌")
