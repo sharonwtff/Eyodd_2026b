@@ -32,7 +32,11 @@ my_array = arr.array('i',[111,222,333,444,555,666,777,888,999,1010])
     #  print(f"elemento num{i+1}:{my_array[i]}")
 
 #Busqueda de un elemento de un arreglo
-num_to_search = 200
+num_to_search = 333
+
+#Modificando un valor usando
+#backet notation 
+my_array[3]=333
 
 try:
   print(f"Location {num_to_search}: {my_array.index(num_to_search)}")
