@@ -23,7 +23,7 @@ row = 1
 column = 2
 value = 99
 
-#Insertar en la fila una columna
+#Insertar en la fila una columnak
 table[row].insert(column, value)
 #Imprimiendo tabla
 print("---Despues de la insercion---")
