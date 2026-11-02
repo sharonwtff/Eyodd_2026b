@@ -1,49 +1,81 @@
-import array as arr
+from array import array as arr
 
-#creacion de un arreglo 
-# 1: entero con signo 
-# i: entero sin signo
-# f: Numero de decimal
-# d; numero decimal doble
-# u ; Caracteres unicode
-my_array = arr.array('i',[111,222,333,444,555,666,777,888,999,1010])
+# Borra pantalla con caracteres ANSI
+def clear_screen():
+    print("\033[2J\033[H", end="")
 
-#iteracion automatica
+# ANSI color codes
+RED = "\033[91m"
+YELLOW = "\033[93m"
+CYAN = "\033[96m"
+RESET = "\033[0m"
+
+# Parametros de mi cuadricula 
+rows = 10
+columns = 2 * rows - 1
+
+#Funcion para imprimi rmatrix
+def print_matrix(input_matrix):
+    for row in matrix:
+        print (list (row))
+
+# Creando la reticula 
+matrix = []
+
+# Construyendo fel grid
+for _ in  range(rows):
+    new_row = arr('i', [0] * columns)
+    matrix.append(new_row)
+
+# Validadando la construccion del Grind
+print (f"Cantidad de filas: {len(matrix)}")
+print (f"Canitdad de columnas {len(matrix[0])}")
 
 
-# for num in my_array:
-#     print(num)
 
-#acesso individual a los elementos del arreglo
+# Calculando el centro de la primera fila
+center = columns // 2 #se hace divicion entera
 
-# print(my_array[0] )
-# print(my_array[1] )
-# print(my_array[2] )
+#Estebleciendo el centro en 1
+matrix [0][center] = 1
 
-#tamaño de un arreglo 
-#len
+# print_matrix (matrix)
 
-# print(len(my_array))    
-    
-#iteracion por indices
-# for i in range(len(my_array)):
-    # print(f"Elemento en el indice {i+1} es: {my_array[i]}")
-  #  if my_array[i] %2 == 0:
-    #  print(f"elemento num{i+1}:{my_array[i]}")
+#Se calcula el resto de la matrix 
+#Siguiendo la logica del siperpinsky 
+for row in range (1, rows):
+    for col in range(0,columns):
+        left_upper_cell= 0
+        rigth_upper_cell=0 
+        #si la columna donde estamos es mayor a 0 
+        if col> 0:
+            left_upper_cell= matrix[row-1][col-1]
+        
+        #si la columna esta un elemento antes del borde derecho
+        if col < columns - 1:
+         rigth_upper_cell=matrix[row-1][col+1]
+        
+        #Guardo el arreglo
+        if left_upper_cell != rigth_upper_cell:
+            matrix[row][col]= 1
+        else:
+            matrix[row][col]=0
 
-#Busqueda de un elemento de un arreglo
-num_to_search = 333
+# print()
+# print_matrix(matrix)            
 
-#Modificando un valor usando
-#backet notation 
-my_array[3]=333
+# Dibuja la matriz
+def draw_matrix(input_matrix, symbol="*"):
+    for row in input_matrix:
+        for cell in row:
+            if cell == 1:
+                print(CYAN + symbol + RESET, end="")
+            else:
+                print(RED + " ", end="")
+        print()
 
-try:
-  print(f"Location {num_to_search}: {my_array.index(num_to_search)}")
-except :
-  print(" ⚠️ Numero no encontrado ❌!!!")
+# Limpia la pantalla antes de dibujar la matriz
+clear_screen()
 
-try:
-  my_array[100]=3
-except:
-  print("⚠️ Indice no existe !!!❌")
+# Dibuja la matriz en pantalla
+draw_matrix(matrix, symbol="■")
